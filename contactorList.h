@@ -21,25 +21,24 @@ public:
 	ContactorList() {
 		head = tail = nullptr;
 		this->ContactorListSize = 0;
-		HaxiTable.clear();
 	}
 
 	// getter系列
-	int getContactorListSize() const;
+	int getContactorListSize() const noexcept;
 
 	// CRUD:增删改查
-	bool addContactor(Contactor* newone); // 新增联系人 O（1）
-	bool eraseContactor(const string& remark); // 删除联系人 O（n）
-	Contactor* getContactor(const string& remark); // 返回联系人节点 O（1）
+	bool addContactor(Contactor* newone) noexcept; // 新增联系人 O（1）
+	bool eraseContactor(const string& remark) noexcept; // 删除联系人 O（n）
+	Contactor* getContactor(const string& remark) noexcept; // 返回联系人节点 O（1）
 
 	// 配合panel面板
-	vector<Contactor*> getAll();
+	vector<Contactor*> getAll() noexcept;
 
 	// 文件读写
-	bool saveToFile();
-	bool loadFromFile();
+	bool saveToFile() noexcept;
+	bool loadFromFile() noexcept;
 
 	// 重写虚构函数
-	~ContactorList();
+	~ContactorList() noexcept;
 
 };

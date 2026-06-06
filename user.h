@@ -38,35 +38,35 @@ public:
 	}
 
 	// getter部分：获取数据
-	string getNickname() const { return nickname; }
-	string getBirthday() const { return birthday; }
-	string getGender() const { return gender; }
-	string getSignature() const { return signature; }
-	string getPhone() const { return phone; }
-	string getArea() const { return area; }
+	string getNickname() const noexcept { return nickname; }
+	string getBirthday() const noexcept { return birthday; }
+	string getGender() const noexcept { return gender; }
+	string getSignature() const noexcept { return signature; }
+	string getPhone() const noexcept { return phone; }
+	string getArea() const noexcept { return area; }
 
 	// setter部分：设置数据
-	void setNickname(const string& nickname) {
+	void setNickname(const string& nickname) noexcept {
 		this->nickname = nickname;
 	}
-	void setBirthday(const string& birthday) {
+	void setBirthday(const string& birthday) noexcept {
 		this->birthday = birthday;
 	}
-	void setGender(const string& gender) {
+	void setGender(const string& gender) noexcept {
 		this->gender = gender;
 	}
-	void setSignature(const string& signature) {
+	void setSignature(const string& signature) noexcept {
 		this->signature = signature;
 	}
-	void setPhone(const string& phone) {
+	void setPhone(const string& phone) noexcept {
 		this->phone = phone;
 	}
-	void setArea(const string& area) {
+	void setArea(const string& area) noexcept {
 		this->area = area;
 	}
 
 	// 文件读写
-	bool saveToFile();
-	bool loadFromFile();
+	bool saveToFile()noexcept;
+	bool loadFromFile()noexcept;
 
 };

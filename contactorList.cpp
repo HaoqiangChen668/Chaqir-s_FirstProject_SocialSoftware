@@ -3,14 +3,14 @@
 const string ContactorList::CONTACT_FILE = "contact.txt";
 
 // getter系列
-int ContactorList::getContactorListSize() const {
+int ContactorList::getContactorListSize() const noexcept {
 	return this->ContactorListSize;
 }
 
 // CRUD:增删改查
 
  // 新增联系人 O（1）
-bool ContactorList::addContactor(Contactor* newone) {
+bool ContactorList::addContactor(Contactor* newone) noexcept {
 	// 统一检查重名
 	if (HaxiTable.count(newone->getRemark()) != 0) {
 		delete newone;
@@ -29,7 +29,7 @@ bool ContactorList::addContactor(Contactor* newone) {
 }
 
 // 删除联系人 O（n）
-bool ContactorList::eraseContactor(const string& remark) {
+bool ContactorList::eraseContactor(const string& remark) noexcept {
 	// 如果查不到联系人，返回false
 	Contactor* person = getContactor(remark);
 	if (person == nullptr) return false;
@@ -63,13 +63,13 @@ bool ContactorList::eraseContactor(const string& remark) {
 }
 
 // 返回联系人节点 O（1）
-Contactor* ContactorList::getContactor(const string& remark) {
+Contactor* ContactorList::getContactor(const string& remark) noexcept {
 	if (HaxiTable.count(remark) == 0) return nullptr;
 	return HaxiTable[remark];
 }
 
 // 配合panel面板
-vector<Contactor*> ContactorList::getAll() {
+vector<Contactor*> ContactorList::getAll() noexcept {
 	vector<Contactor*> ans;
 	Contactor* current = head;
 	while (current != nullptr) {
@@ -82,7 +82,7 @@ vector<Contactor*> ContactorList::getAll() {
 // 文件读写
 
 // 保存到文件中
-bool ContactorList::saveToFile() {
+bool ContactorList::saveToFile() noexcept {
 	ofstream fout(CONTACT_FILE);
 	if (!fout.is_open()) {
 		return false;
@@ -104,7 +104,7 @@ bool ContactorList::saveToFile() {
 }
 
 // 从文件中下载
-bool ContactorList::loadFromFile() {
+bool ContactorList::loadFromFile() noexcept {
 	ifstream fin(CONTACT_FILE);
 	if (!fin.is_open()) {
 		return false;

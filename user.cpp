@@ -2,7 +2,7 @@
 
 const string Userinfo::USER_FILE = "user_info.txt";
 
-bool Userinfo::saveToFile() {
+bool Userinfo::saveToFile() noexcept {
 	ofstream fout(USER_FILE);
 	if (!fout.is_open()) return false;
 	fout << nickname << '|';
@@ -15,7 +15,7 @@ bool Userinfo::saveToFile() {
 	return true;
 }
 
-bool Userinfo::loadFromFile() {
+bool Userinfo::loadFromFile() noexcept {
 	ifstream fin(USER_FILE);
 	if (!fin.is_open()) return false;
 	string information;
