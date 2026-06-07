@@ -138,7 +138,7 @@ bool ContactorList::loadFromFile() noexcept {
 }
 
 // 重写虚构函数
-ContactorList::~ContactorList() {
+ContactorList::~ContactorList() noexcept {
 	Contactor* current = head;
 	while (current != nullptr) {
 		Contactor* node = current;

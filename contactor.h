@@ -36,6 +36,16 @@ public:
 		next = nullptr;
 	}
 
+	Contactor(const Contactor& other) {
+		this->remark = other.getRemark();
+		this->birthday = other.getBirthday();
+		this->gender = other.getGender();
+		this->signature = other.getSignature();
+		this->phone = other.getPhone();
+		this->area = other.getArea();
+		next = nullptr;
+	}
+
 	// getter部分：获取数据
 	string getRemark() const noexcept{ return remark; }
 	string getBirthday() const noexcept { return birthday; }

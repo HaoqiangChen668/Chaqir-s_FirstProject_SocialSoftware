@@ -19,6 +19,7 @@ public:
 
 	// 构造函数
 	Day();
+
 	// 析构函数
 	~Day();
 
@@ -37,4 +38,7 @@ public:
 
 	// 顺序返回该天所有事件：配合面板
 	vector<Event> getAllEvent() const noexcept;
+
+	// 清空所有事件
+	void clear() noexcept;
 };

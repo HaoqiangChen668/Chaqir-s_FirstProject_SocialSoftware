@@ -22,7 +22,7 @@ public:
 		theme(theme), description(description), remark(remark), startTime(startTime), duration(duration), linkContactors(linkContactors) {
 		id = cntOfId++;
 	}
-
+	~Event();
 	int getId()const noexcept { return this->id; }
 	string getTheme() const noexcept { return this->theme; }
 	string getDescription() const noexcept { return this->description; }
@@ -37,4 +37,3 @@ public:
 	vector<Contactor*>& getLinkContactors() noexcept { return this->linkContactors; }
 };
 
-int Event::cntOfId = 0;

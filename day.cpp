@@ -45,6 +45,7 @@ Day::~Day() {
 
 // 添加事件
 bool Day::addEvent(EventNode* event) noexcept {
+	if (event == nullptr) return false;
 	// 插入合法性：id不能相同
 	if (idFind.count(event->getId()) != 0) {
 		return false;
@@ -55,7 +56,10 @@ bool Day::addEvent(EventNode* event) noexcept {
 		current = current->next;
 	}
 	// 插入合法性：时间不合法
-	if (current == tail) return false;
+	if (current == tail) {
+		delete event;
+		return false;
+	}
 	// 全部合法可插入
 	insertAafterB(event, current);
 	// 更新
@@ -107,4 +111,17 @@ vector<Event> Day::getAllEvent() const noexcept {
 		current = current->next;
 	}
 	return ans;
+}
+
+// 清空所有事件
+void Day::clear() noexcept {
+	this->numOfEvent = 0;
+	EventNode* current = head->next;
+	while (current != tail) {
+		EventNode* node = current;
+		current = current->next;
+		breakNode(node);
+		delete node;
+	}
+	this->idFind.clear();
 }

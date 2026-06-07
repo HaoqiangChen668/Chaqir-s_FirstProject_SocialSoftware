@@ -49,9 +49,7 @@ vector<string> Common::split(const string& s, char delimiter) {
 	stringstream ss(s);
 	string part;
 	while (getline(ss, part, delimiter)) {
-		if (!part.empty()) {
-			parts.emplace_back(part);
-		}
+		parts.emplace_back(part);
 	}
 	return parts;
 }
