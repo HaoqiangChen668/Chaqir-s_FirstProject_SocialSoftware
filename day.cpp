@@ -56,10 +56,7 @@ bool Day::addEvent(EventNode* event) noexcept {
 		current = current->next;
 	}
 	// 插入合法性：时间不合法
-	if (current == tail) {
-		delete event;
-		return false;
-	}
+	if (current == tail) return false;
 	// 全部合法可插入
 	insertAafterB(event, current);
 	// 更新
@@ -79,6 +76,7 @@ EventNode* Day::findEventById(const int& id) const noexcept {
 
 // 删除事件
 bool Day::eraseEvent(EventNode* event) noexcept {
+	if (event == nullptr) return false;
 	if (findEventById(event->getId()) == nullptr) return false;
 	breakNode(event);
 	--this->numOfEvent;
